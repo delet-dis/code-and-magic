@@ -19,7 +19,5 @@
     "url": "https://github.com/delet-dis/code-and-magic/issues"
   },
   "homepage": "https://github.com/delet-dis/code-and-magic#readme",
-  "devDependencies": {
-    "parcel": "^1.12.4"
-  }
+  "devDependencies": {}
 }
