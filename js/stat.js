@@ -13,4 +13,10 @@ window.renderStatistics = (ctx, names, times) => {
 
   //статистика фронт
   renderCloud(ctx, 100, 50, '#fff');
+
+  //отрисовка текста
+  ctx.font = '16px PT Mono';
+  ctx.fillStyle = '#000';
+  ctx.fillText('Ура, Вы победили!', 110,75);
+  ctx.fillText('Список результатов:', 110,95);
 };
