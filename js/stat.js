@@ -13,8 +13,8 @@ let renderDiagram = (ctx, names, times) => {
   let minTimeName = names[minTimeIndex];
 
   for (const name of names) {
-    ctx.fillText(name, names.indexOf(name) * 10, 240);
-    console.log(name,names.indexOf(name)*10);
+    ctx.fillText(name, 135 + names.indexOf(name) * 90, 240);
+    console.log(name, names.indexOf(name) * 10);
     ctx.font = '16px PT Mono';
     ctx.fillStyle = '#000';
   }
