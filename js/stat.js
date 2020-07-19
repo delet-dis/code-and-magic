@@ -19,4 +19,10 @@ window.renderStatistics = (ctx, names, times) => {
   ctx.fillStyle = '#000';
   ctx.fillText('Ура, Вы победили!', 110,75);
   ctx.fillText('Список результатов:', 110,95);
+  console.log(names);
+  console.log(times);
+
+  let maxTimeElement = Math.max(...times);
+  let maxTimeIndex = times.indexOf(maxTimeElement);
+  console.log(maxTimeElement, maxTimeIndex);
 };
