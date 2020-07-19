@@ -10,7 +10,7 @@ let renderCloud = (ctx, x, y, color) => {
 let renderDiagram = (ctx, names, times) => {
 
   //константы
-  let COLUMN_WIDTH = 50;
+  let COLUMN_WIDTH = 40;
 
   //вычисление максимального значения и имени
   let maxTimeElement = Math.max(...times);
