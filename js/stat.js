@@ -13,10 +13,9 @@ let renderDiagram = (ctx, names, times) => {
   let COLUMN_WIDTH = 50;
 
   //вычисление максимального значения и имени
-  let minTimeElement = Math.max(...times);
-  let minTimeIndex = times.indexOf(minTimeElement);
-  let minTimeName = names[minTimeIndex];
-
+  let maxTimeElement = Math.max(...times);
+  let maxTimeIndex = times.indexOf(maxTimeElement);
+  let maxTimeName = names[maxTimeIndex];
   //отрисовка
   for (const name of names) {
 
@@ -27,7 +26,7 @@ let renderDiagram = (ctx, names, times) => {
     ctx.fillStyle = '#000';
     ctx.font = '16px PT Mono';
     ctx.fillText(name, nameX, 240);
-    
+
     //заливка столбцов
     if (name === 'Вы') {
       ctx.fillStyle = 'rgba(255,0,0,1)';
@@ -35,7 +34,8 @@ let renderDiagram = (ctx, names, times) => {
       ctx.fillStyle = 'rgba(0,0,255,' + Math.random() + ')';
     }
     //отрисовка столбцов
-    ctx.fillRect(nameX, 195, COLUMN_WIDTH, 20);
+    let columnHeight = (times[names.indexOf(name)] * 110) / maxTimeElement;
+    ctx.fillRect(nameX, 220, COLUMN_WIDTH, -columnHeight);
   }
 }
 
