@@ -8,15 +8,26 @@ let renderCloud = (ctx, x, y, color) => {
 };
 
 let renderDiagram = (ctx, names, times) => {
+  //константы
+  let COLUMN_WIDTH = 50;
+  //вычисление максимального значения и имени
   let minTimeElement = Math.max(...times);
   let minTimeIndex = times.indexOf(minTimeElement);
   let minTimeName = names[minTimeIndex];
-
+  //отрисовка
   for (const name of names) {
-    ctx.fillText(name, 135 + names.indexOf(name) * 90, 240);
-    console.log(name, names.indexOf(name) * 10);
-    ctx.font = '16px PT Mono';
+    let nameX = 135 + names.indexOf(name) * 90;
+    //отрисовка имен
     ctx.fillStyle = '#000';
+    ctx.font = '16px PT Mono';
+    ctx.fillText(name, nameX, 240);
+    //отрисовка столбцов
+    if (name === 'Вы') {
+      ctx.fillStyle = 'rgba(255,0,0,1)';
+    } else {
+      ctx.fillStyle = 'rgba(0,0,255,' + Math.random() + ')';
+    }
+    ctx.fillRect(nameX, 195, COLUMN_WIDTH, 20);
   }
 }
 
