@@ -38,7 +38,7 @@ function randReturn() {
 };
 
 //функция создания ДОМ элемента
-function createDOM(dataObj){
+function createDOM(dataObj) {
   let wizardElement = similarWizardTemplate.cloneNode(true);
 
   wizardElement.querySelector('.setup-similar-label').textContent = dataObj.name;
@@ -50,9 +50,9 @@ function createDOM(dataObj){
 
 
 //функция сборки и отображения похожих персонажей + отображение самого блока
-(function displaySimilar(){
+(function displaySimilar() {
   let randReturnResult = randReturn();
-  for (let i = 0; i<randReturnResult.length; i++){
+  for (let i = 0; i < randReturnResult.length; i++) {
     createDOM(randReturnResult[i]);
   };
 
