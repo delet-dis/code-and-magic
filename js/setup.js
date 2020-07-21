@@ -52,7 +52,7 @@ function createDOM(dataObj){
 //функция сборки и отображения похожих персонажей + отображение самого блока
 (function displaySimilar(){
   let randReturnResult = randReturn();
-  for (let i = 0; i<4; i++){
+  for (let i = 0; i<randReturnResult.length; i++){
     createDOM(randReturnResult[i]);
   };
 
