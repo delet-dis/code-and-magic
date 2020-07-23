@@ -15,9 +15,9 @@ const closeModal = evt => {
   };
 };
 //слушатель открытия модалки через фокус аватарки
-setupOpenIcon.addEventListener('focus', function(evt){
-  document.addEventListener('keydown', function(evt){
-    if (evt.code === 'Enter'){
+setupOpenIcon.addEventListener('focus', function (evt) {
+  document.addEventListener('keydown', function (evt) {
+    if (evt.code === 'Enter') {
       setup.classList.remove('hidden');
       document.addEventListener('keydown', closeModal);
     }
