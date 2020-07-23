@@ -1,9 +1,4 @@
 'use strict';
-//объявление и показ блока
-let setupEl = document.querySelector('.setup');
-
-setupEl.classList.remove('hidden');
-
 
 //объявление списка похожих магов и темплейта мага
 let similarListElement = document.querySelector('.setup-similar-list');
