@@ -8,7 +8,7 @@ const setup = document.querySelector('.setup'),
 const closeModal = evt => {
   const target = evt.target;
   if (target.closest('.setup-close') || evt.code === 'Escape') {
-    console.log('buh');
+    document.removeEventListener('keydown', closeModal);
     setup.classList.add('hidden');
   }
 };
