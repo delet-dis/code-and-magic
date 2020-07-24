@@ -36,7 +36,6 @@ function fireballColorChanger() {
 
 setupPlayer.addEventListener('click', function (evt) {
   const target = evt.target;
-  console.log('click');
   if (target.closest('.wizard-coat')) {
     wizardCoatColorChanger();
   };
