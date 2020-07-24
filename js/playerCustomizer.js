@@ -2,13 +2,13 @@
 
 //объявление переменных для работы с цветами персонажа
 const setupPlayer = document.querySelector('.setup-player'),
-      setupWizard = document.querySelector('.setup-wizard'),
-      wizardCoat = setupWizard.querySelector('.wizard-coat'),
-      wizardEyes = setupWizard.querySelector('.wizard-eyes'),
-      setupFireballWrap = document.querySelector('.setup-fireball-wrap'),
-      inputCoatColor = document.querySelector('input[name=coat-color]'),
-      inputEyesColor = document.querySelector('input[name=eyes-color]'),
-      inputFireballColor = document.querySelector('input[name=fireball-color]');
+  setupWizard = document.querySelector('.setup-wizard'),
+  wizardCoat = setupWizard.querySelector('.wizard-coat'),
+  wizardEyes = setupWizard.querySelector('.wizard-eyes'),
+  setupFireballWrap = document.querySelector('.setup-fireball-wrap'),
+  inputCoatColor = document.querySelector('input[name=coat-color]'),
+  inputEyesColor = document.querySelector('input[name=eyes-color]'),
+  inputFireballColor = document.querySelector('input[name=fireball-color]');
 
 //функция генерации цветов мантии персонажа
 function wizardCoatColorGenerator() {
@@ -36,12 +36,12 @@ setupPlayer.addEventListener('click', function (evt) {
     wizardCoat.style.fill = color;
     inputCoatColor.value = color;
   };
-  if(target.closest('.wizard-eyes')){
+  if (target.closest('.wizard-eyes')) {
     let color = wizardEyesColorGenerator();
     wizardEyes.style.fill = color;
     inputEyesColor.value = color;
   };
-  if(target.closest('.setup-fireball-wrap')){
+  if (target.closest('.setup-fireball-wrap')) {
     let color = fireballColorGenerator();
     setupFireballWrap.style.backgroundColor = color;
     inputFireballColor.value = color;
