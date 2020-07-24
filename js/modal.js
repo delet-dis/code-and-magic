@@ -14,19 +14,21 @@ const closeModal = evt => {
     setup.classList.add('hidden');
   };
 };
+const openModal = evt =>{
+  setup.classList.remove('hidden');
+  document.addEventListener('keydown', closeModal);
+};
 //слушатель открытия модалки через фокус аватарки
 setupOpenIcon.addEventListener('focus', function (evt) {
   document.addEventListener('keydown', function (evt) {
     if (evt.code === 'Enter') {
-      setup.classList.remove('hidden');
-      document.addEventListener('keydown', closeModal);
+      openModal();
     }
   })
 });
 //слушатель открытия модального окна
 setupOpen.addEventListener('click', function () {
-  setup.classList.remove('hidden');
-  document.addEventListener('keydown', closeModal);
+  openModal();
 });
 
 //слушатель закрытия модального окна
