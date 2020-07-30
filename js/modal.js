@@ -20,6 +20,8 @@ const closeModal = evt => {
 //функция открытия модалок
 const openModal = evt => {
   setup.classList.remove('hidden');
+  setup.style.left = "50%";
+  setup.style.top = "80px";
   document.addEventListener('keydown', closeModal);
 };
 
