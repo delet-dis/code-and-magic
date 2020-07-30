@@ -4,7 +4,8 @@
 const setup = document.querySelector('.setup'),
   setupOpen = document.querySelector('.setup-open'),
   usernameInput = document.querySelector('.setup-user-name'),
-  setupOpenIcon = document.querySelector('.setup-open-icon');
+  setupOpenIcon = document.querySelector('.setup-open-icon'),
+  dialogHandle = document.querySelector('.upload');
 
 //функция закрытия модалок
 const closeModal = evt => {
@@ -35,6 +36,37 @@ setupOpenIcon.addEventListener('focus', function (evt) {
 setupOpen.addEventListener('click', function () {
   openModal();
 });
+
+//перетаскивание модального окна за аватарку в несколько этапов
+dialogHandle.addEventListener('mousedown', function (evt) {
+  evt.preventDefault();
+  console.log('move');
+
+  let startCoords = {
+    x: evt.clientX,
+    y: evt.clientY
+  };
+  //функция высчитывания координат
+  const onMouseMove = moveEvt => {
+    moveEvt.preventDefault();
+
+    let shift = {
+      x: startCoords.x - moveEvt.clientX,
+      y: startCoords.y - moveEvt.clientY
+    };
+
+    startCoords = {
+      x: moveEvt.clientX,
+      y: moveEvt.clientY
+    };
+
+    setup.style.top = (setup.offsetTop - shift.y) + 'px';
+    setup.style.left = (setup.offsetLeft - shift.x) + 'px';
+};
+  document.addEventListener('mousemove', onMouseMove);
+  // document.addEventListener('mouseup', onMouseUp);
+});
+
 
 //слушатель закрытия модального окна
 setup.addEventListener('click', closeModal);
