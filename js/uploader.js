@@ -11,7 +11,7 @@
     xhr.addEventListener('load', function () {
       onSuccess(xhr.response);
     });
-
+    console.log(data);
     xhr.open('POST', url);
     xhr.send(data);
   };
