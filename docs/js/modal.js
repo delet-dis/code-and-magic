@@ -5,7 +5,8 @@
     setupOpen = document.querySelector('.setup-open'),
     usernameInput = document.querySelector('.setup-user-name'),
     setupOpenIcon = document.querySelector('.setup-open-icon'),
-    dialogHandler = setup.querySelector('.upload');
+    dialogHandler = setup.querySelector('.upload'),
+    form = setup.querySelector('.setup-wizard-form');
 
   //функция закрытия модалок
   const closeModal = evt => {
@@ -87,6 +88,14 @@
     document.addEventListener('mouseup', onMouseUp);
   });
 
+  //слушатель отправки формы
+  form.addEventListener('submit', function(evt){
+    window.upload(new FormData(form), 
+    function(response){
+      setup.classList.add('hidden');
+    });
+    evt.preventDefault();
+  });
 
   //слушатель закрытия модального окна
   setup.addEventListener('click', closeModal);
