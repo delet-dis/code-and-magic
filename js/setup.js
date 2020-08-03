@@ -55,7 +55,7 @@
   //   setupSimilar.classList.remove('hidden');
   // }());
 
-  window.load(function (wizards) {
+  window.backend.load(function (wizards) {
 
     for (let i = 0; i < 4; i++) {
       createDOM(wizards[i]);
