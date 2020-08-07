@@ -43,7 +43,7 @@
       let node = document.createElement('div');
       node.classList.add('error-message');
 
-      if (errorMessage !== DEFAULT_ERROR_MESSAGE && errorMessage.startsWith('Запрос') === false) {
+      if (errorMessage !== DEFAULT_ERROR_MESSAGE && errorMessage[0].errorMessage.startsWith('Запрос') === false) {
         node.textContent = '';
         for (let i = 0; i < errorMessage.length; i++) {
           node.innerText += errorMessage[i].fieldName + ' ' + errorMessage[i].errorMessage + ', ';
