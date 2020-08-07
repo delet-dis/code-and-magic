@@ -63,5 +63,5 @@
 
     let setupSimilar = document.querySelector('.setup-similar');
     setupSimilar.classList.remove('hidden');
-  })
+  }, window.backend.errorHandler);
 }())

@@ -93,7 +93,7 @@
     window.backend.save(new FormData(form),
       function (response) {
         setup.classList.add('hidden');
-      });
+      }, window.backend.errorHandler);
     evt.preventDefault();
   });
 
