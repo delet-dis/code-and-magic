@@ -2,7 +2,7 @@
 //функция получения и передачи данных
 (function () {
   let SERVER_URL = 'https://javascript.pages.academy/code-and-magick';
-
+  let DEFAULT_ERROR_MESSAGE = 'Произошла ошибка соединения';
   let setup = function (onLoad, onError) {
     let xhr = new XMLHttpRequest();
     xhr.responseType = 'json';
@@ -42,15 +42,17 @@
     errorHandler: function (errorMessage) {
       let node = document.createElement('div');
       node.classList.add('error-message');
-      node.textContent = 'Произошла ошибка';
-      if (errorMessage) {
+
+      if (errorMessage !== DEFAULT_ERROR_MESSAGE && errorMessage.startsWith('Запрос') === false) {
         node.textContent = '';
         for (let i = 0; i < errorMessage.length; i++) {
           node.innerText += errorMessage[i].fieldName + ' ' + errorMessage[i].errorMessage + ', ';
         };
 
         node.textContent = node.textContent.replace(/^( *, *)+|(, *(?=,|$))+/g, '');
-      }
+      } else {
+        node.textContent = DEFAULT_ERROR_MESSAGE;
+      };
 
       setTimeout(() => {
         document.querySelector('.error-message').remove()
