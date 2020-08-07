@@ -56,9 +56,9 @@
   // }());
 
   window.backend.load(function (wizards) {
-
+    let data = wizards;
     for (let i = 0; i < 4; i++) {
-      createDOM(wizards[i]);
+      createDOM(data[i]);
     };
 
     let setupSimilar = document.querySelector('.setup-similar');
