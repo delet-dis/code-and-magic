@@ -888,3 +888,18 @@ input[type=radio]:checked+.review-mark-label {
   left: 0;
   top: 0;
 }
+
+.error-message {
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin-bottom: 10px;
+  z-index: 100;
+  width: 100%;
+  padding: 15px 0;
+  background-color: red;
+  text-align: center;
+  font-weight: 700;
+  font-size: 30px;
+  color: white;
+}
