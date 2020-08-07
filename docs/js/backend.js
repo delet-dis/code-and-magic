@@ -42,11 +42,20 @@
     errorHandler: function (errorMessage) {
       let node = document.createElement('div');
       node.classList.add('error-message');
-      node.textContent = errorMessage;
+      node.textContent = 'Произошла ошибка';
+      if (errorMessage) {
+        node.textContent = '';
+        for (let i = 0; i < errorMessage.length; i++) {
+          node.innerText += errorMessage[i].fieldName + ' ' + errorMessage[i].errorMessage + ', ';
+        };
 
-      if (!errorMessage) {
-        node.textContent = 'Произошла ошибка';
-      };
+        node.textContent = node.textContent.replace(/^( *, *)+|(, *(?=,|$))+/g, '');
+      }
+
+      setTimeout(() => {
+        document.querySelector('.error-message').remove()
+      }, 4000);
+
       document.body.insertAdjacentElement('afterbegin', node);
     }
   };
