@@ -1,5 +1,11 @@
 'use strict';
 (function () {
+  //функция случайного пика значения
+  const arrayRandElement = arr => {
+    let rand = Math.floor(Math.random() * arr.length);
+    return arr[rand];
+  };
+
   //объявление переменных для работы с цветами персонажа
   const setupPlayer = document.querySelector('.setup-player'),
     setupWizard = document.querySelector('.setup-wizard'),

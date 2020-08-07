@@ -1,4 +1,5 @@
 'use strict';
+
 //функция получения и передачи данных
 (function () {
   let SERVER_URL = 'https://javascript.pages.academy/code-and-magick';
