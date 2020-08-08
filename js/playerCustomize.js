@@ -46,29 +46,27 @@
     inputFireballColor.value = color;
   }
 
+  //дебаунс(устранение дребезжания)
+  function debounce() {
+    if (lastTimeout) {
+      window.clearTimeout(lastTimeout);
+    };
+    lastTimeout = window.setTimeout(function () {
+      window.updateSimilarWizards();
+    }, 300);
+  };
+
   //слушатель обновления цвета персонажа по нажатию
   let lastTimeout;
   setupPlayer.addEventListener('click', function (evt) {
     const target = evt.target;
     if (target.closest('.wizard-coat')) {
       wizardCoatColorChanger();
-      if (lastTimeout) {
-        window.clearTimeout(lastTimeout);
-      };
-      lastTimeout = window.setTimeout(function () {
-        window.updateSimilarWizards();
-      }, 300);
-
+      debounce();
     };
     if (target.closest('.wizard-eyes')) {
       wizardEyesColorChanger();
-      if (lastTimeout) {
-        window.clearTimeout(lastTimeout);
-      };
-      lastTimeout = window.setTimeout(function () {
-        window.updateSimilarWizards();
-      }, 300);
-
+      debounce();
     };
     if (target.closest('.setup-fireball-wrap')) {
       window.updateSimilarWizards();

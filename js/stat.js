@@ -1,8 +1,8 @@
 'use strict';
 (function () {
   let renderCloud = (ctx, x, y, color) => {
-    let CLOUD_WIDTH = 500;
-    let CLOUD_HEIGHT = 200;
+    const CLOUD_WIDTH = 500;
+    const CLOUD_HEIGHT = 200;
     ctx.fillStyle = color;
     ctx.fillRect(x, y, CLOUD_WIDTH, CLOUD_HEIGHT)
   };
@@ -10,7 +10,7 @@
   let renderDiagram = (ctx, names, times) => {
 
     //константы
-    let COLUMN_WIDTH = 40;
+    const COLUMN_WIDTH = 40;
 
     //вычисление максимального значения и имени
     let maxTimeElement = Math.max(...times);

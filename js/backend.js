@@ -2,8 +2,8 @@
 
 //функция получения и передачи данных
 (function () {
-  let SERVER_URL = 'https://javascript.pages.academy/code-and-magick';
-  let DEFAULT_ERROR_MESSAGE = 'Произошла ошибка соединения';
+  const SERVER_URL = 'https://javascript.pages.academy/code-and-magick';
+  const DEFAULT_ERROR_MESSAGE = 'Произошла ошибка соединения';
   let setup = function (onLoad, onError) {
     let xhr = new XMLHttpRequest();
     xhr.responseType = 'json';
