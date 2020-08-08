@@ -25,6 +25,7 @@
     xhr.timeout = 5000;
 
     return xhr;
+
   };
 
   window.backend = {

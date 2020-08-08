@@ -33,6 +33,7 @@
       } else {
         ctx.fillStyle = 'rgba(0,0,255,' + Math.random() + ')';
       }
+      
       //отрисовка столбцов
       let columnHeight = (times[names.indexOf(name)] * 110) / maxTimeElement;
       ctx.fillRect(nameX, 220, COLUMN_WIDTH, -columnHeight);

@@ -69,7 +69,7 @@
       debounce();
     };
     if (target.closest('.setup-fireball-wrap')) {
-      window.updateSimilarWizards();
+      fireballColorChanger();
     }
   });
 })()
