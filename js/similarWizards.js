@@ -24,7 +24,7 @@
     return rank;
   };
 
-  //функция распределения по именам
+  //функция распределения по именам в случае конфликта
   let namesComparator = function (left, right) {
     if (left > right) {
       return 1;
@@ -34,6 +34,7 @@
       return 0;
     }
   };
+
   //объявление списка похожих магов и темплейта мага
   let similarListElement = document.querySelector('.setup-similar-list');
   let similarWizardTemplate = document.querySelector('#similar-wizard-template')
@@ -51,6 +52,7 @@
     return wizardElement;
   };
 
+  //функция отображения похожих магов
   function render(data) {
     var takeNumber = data.length > 4 ? 4 : data.length;
     similarListElement.innerHTML = '';

@@ -23,6 +23,7 @@
     setup.classList.remove('hidden');
     setup.style.left = "50%";
     setup.style.top = "80px";
+    window.updateSimilarWizards();
     document.addEventListener('keydown', closeModal);
   };
 
@@ -95,6 +96,7 @@
         setup.classList.add('hidden');
       }, window.backend.errorHandler);
     evt.preventDefault();
+    window.updateSimilarWizards();
   });
 
   //слушатель закрытия модального окна
