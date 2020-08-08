@@ -44,29 +44,31 @@
   function createSimilar(dataObj) {
     let wizardElement = similarWizardTemplate.cloneNode(true);
 
-    wizardElement.querySelector('.setup-similar-label').textContent = dataObj.name;
+    wizardElement.querySelector('.setup-similar-label').innerText = dataObj.name;
     wizardElement.querySelector('.wizard-coat').style.fill = dataObj.colorCoat;
     wizardElement.querySelector('.wizard-eyes').style.fill = dataObj.colorEyes;
 
-    similarListElement.appendChild(wizardElement);
+    return wizardElement;
+  };
+
+  function render(data) {
+    var takeNumber = data.length > 4 ? 4 : data.length;
+    similarListElement.innerHTML = '';
+    for (var i = 0; i < takeNumber; i++) {
+      similarListElement.appendChild(createSimilar(data[i]));
+    }
+
+    similarListElement.classList.remove('hidden');
   };
 
   //функция обновления списка похожих волшебников
-  function updateSimilarWizards() {
-    let sameCoatAndEyesWizards = recivedData.filter(item => {
-      return item.colorCoat === window.playerCoatColor &&
-        item.colorEyes === window.playerEyesColor;
-    })
-    let sameCoatWizards = recivedData.filter(item => {
-      return item.colorCoat === window.playerCoatColor;
-    });
-    let sameEyesWizards = recivedData.filter(item => {
-      return item.colorEyes === window.playerEyesColor;
-    })
-    let filteredWizards = sameCoatAndEyesWizards.concat(sameCoatWizards, sameEyesWizards, recivedData);
-
-    let uniqeWizards = filteredWizards.filter((item, i) => {
-      return filteredWizards.indexOf(item) === i;
-    })
+  window.updateSimilarWizards = function () {
+    render(recivedData.sort(function (left, right) {
+      let rankDiff = getRank(right) - getRank(left);
+      if (rankDiff === 0) {
+        rankDiff = namesComparator(left.name, right.name);
+      };
+      return rankDiff;
+    }))
   };
 })()

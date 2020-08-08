@@ -50,12 +50,14 @@
     const target = evt.target;
     if (target.closest('.wizard-coat')) {
       wizardCoatColorChanger();
+      window.updateSimilarWizards();
     };
     if (target.closest('.wizard-eyes')) {
       wizardEyesColorChanger();
+      window.updateSimilarWizards();
     };
     if (target.closest('.setup-fireball-wrap')) {
-      fireballColorChanger();
+      window.updateSimilarWizards();
     }
   });
 })()
