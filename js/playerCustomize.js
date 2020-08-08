@@ -22,6 +22,7 @@
   function wizardCoatColorChanger() {
     let colors = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
     let color = arrayRandElement(colors);
+
     wizardCoat.style.fill = color;
     inputCoatColor.value = color;
     window.playerCoatColor = color;
@@ -33,6 +34,7 @@
   function wizardEyesColorChanger() {
     let colors = ['black', 'green', 'yellow', 'blue', 'red'];
     let color = arrayRandElement(colors);
+
     wizardEyes.style.fill = color;
     inputEyesColor.value = color;
     window.playerEyesColor = color;
@@ -42,6 +44,7 @@
   function fireballColorChanger() {
     let colors = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
     let color = arrayRandElement(colors);
+
     setupFireballWrap.style.backgroundColor = color;
     inputFireballColor.value = color;
   }
@@ -51,6 +54,7 @@
     if (lastTimeout) {
       window.clearTimeout(lastTimeout);
     };
+
     lastTimeout = window.setTimeout(function () {
       window.updateSimilarWizards();
     }, 300);
@@ -64,10 +68,12 @@
       wizardCoatColorChanger();
       debounce();
     };
+
     if (target.closest('.wizard-eyes')) {
       wizardEyesColorChanger();
       debounce();
     };
+    
     if (target.closest('.setup-fireball-wrap')) {
       fireballColorChanger();
     }
