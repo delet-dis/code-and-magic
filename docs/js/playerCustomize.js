@@ -17,19 +17,25 @@
     inputFireballColor = document.querySelector('input[name=fireball-color]');
 
   //функция генерации цветов мантии персонажа
+  window.playerCoatColor = wizardCoat.style.fill;
+
   function wizardCoatColorChanger() {
     let colors = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
     let color = arrayRandElement(colors);
     wizardCoat.style.fill = color;
     inputCoatColor.value = color;
+    window.playerCoatColor = color;
   }
 
   //функция генерации цветов глаз персонажа
+  window.playerEyesColor = wizardEyes.style.fill;
+
   function wizardEyesColorChanger() {
     let colors = ['black', 'green', 'yellow', 'blue', 'red'];
     let color = arrayRandElement(colors);
     wizardEyes.style.fill = color;
     inputEyesColor.value = color;
+    window.playerEyesColor = color;
   }
 
   //функция генерации цветов фаерболов
@@ -40,13 +46,27 @@
     inputFireballColor.value = color;
   }
 
+  //дебаунс(устранение дребезжания)
+  function debounce() {
+    if (lastTimeout) {
+      window.clearTimeout(lastTimeout);
+    };
+    lastTimeout = window.setTimeout(function () {
+      window.updateSimilarWizards();
+    }, 300);
+  };
+
+  //слушатель обновления цвета персонажа по нажатию
+  let lastTimeout;
   setupPlayer.addEventListener('click', function (evt) {
     const target = evt.target;
     if (target.closest('.wizard-coat')) {
       wizardCoatColorChanger();
+      debounce();
     };
     if (target.closest('.wizard-eyes')) {
       wizardEyesColorChanger();
+      debounce();
     };
     if (target.closest('.setup-fireball-wrap')) {
       fireballColorChanger();

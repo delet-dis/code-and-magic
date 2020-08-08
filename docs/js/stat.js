@@ -1,8 +1,8 @@
 'use strict';
 (function () {
   let renderCloud = (ctx, x, y, color) => {
-    let CLOUD_WIDTH = 500;
-    let CLOUD_HEIGHT = 200;
+    const CLOUD_WIDTH = 500;
+    const CLOUD_HEIGHT = 200;
     ctx.fillStyle = color;
     ctx.fillRect(x, y, CLOUD_WIDTH, CLOUD_HEIGHT)
   };
@@ -10,7 +10,7 @@
   let renderDiagram = (ctx, names, times) => {
 
     //константы
-    let COLUMN_WIDTH = 40;
+    const COLUMN_WIDTH = 40;
 
     //вычисление максимального значения и имени
     let maxTimeElement = Math.max(...times);
@@ -33,6 +33,7 @@
       } else {
         ctx.fillStyle = 'rgba(0,0,255,' + Math.random() + ')';
       }
+      
       //отрисовка столбцов
       let columnHeight = (times[names.indexOf(name)] * 110) / maxTimeElement;
       ctx.fillRect(nameX, 220, COLUMN_WIDTH, -columnHeight);

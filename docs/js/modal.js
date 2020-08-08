@@ -12,6 +12,7 @@
   const closeModal = evt => {
     const target = evt.target;
     let curElement = document.activeElement.toString();
+
     if (target.closest('.setup-close') || evt.code === 'Escape' && curElement.includes('Input') === false) {
       document.removeEventListener('keydown', closeModal);
       setup.classList.add('hidden');
@@ -21,8 +22,11 @@
   //функция открытия модалок
   const openModal = evt => {
     setup.classList.remove('hidden');
+
     setup.style.left = "50%";
     setup.style.top = "80px";
+
+    window.updateSimilarWizards();
     document.addEventListener('keydown', closeModal);
   };
 
@@ -55,6 +59,7 @@
     const onMouseMove = moveEvt => {
       moveEvt.preventDefault();
       dragged = true;
+
       let shift = {
         x: startCoords.x - moveEvt.clientX,
         y: startCoords.y - moveEvt.clientY
@@ -84,6 +89,7 @@
         dialogHandler.addEventListener('click', onClickPreventDefault);
       }
     };
+
     document.addEventListener('mousemove', onMouseMove);
     document.addEventListener('mouseup', onMouseUp);
   });
@@ -94,7 +100,9 @@
       function (response) {
         setup.classList.add('hidden');
       }, window.backend.errorHandler);
+      
     evt.preventDefault();
+    window.updateSimilarWizards();
   });
 
   //слушатель закрытия модального окна
