@@ -17,19 +17,25 @@
     inputFireballColor = document.querySelector('input[name=fireball-color]');
 
   //функция генерации цветов мантии персонажа
+  window.playerCoatColor;
+
   function wizardCoatColorChanger() {
     let colors = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
     let color = arrayRandElement(colors);
     wizardCoat.style.fill = color;
     inputCoatColor.value = color;
+    window.playerCoatColor = color;
   }
 
   //функция генерации цветов глаз персонажа
+  window.playerEyesColor;
+
   function wizardEyesColorChanger() {
     let colors = ['black', 'green', 'yellow', 'blue', 'red'];
     let color = arrayRandElement(colors);
     wizardEyes.style.fill = color;
     inputEyesColor.value = color;
+    window.playerEyesColor = color;
   }
 
   //функция генерации цветов фаерболов
