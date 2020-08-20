@@ -1,6 +1,6 @@
 'use strict';
 
-//функция изменения превью аватарки польщователя
+//функция изменения превью аватарки пользователя
 (function () {
   const filePicker = document.querySelector('.upload input[type=file]'),
     preview = document.querySelector('.setup-user-pic'),
