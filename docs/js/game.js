@@ -22,7 +22,7 @@ window.GameConstants = {
   }
 };
 
-window.Game = (() => {
+window.Game = (function () {
   /**
    * @const
    * @type {number}
@@ -331,7 +331,7 @@ window.Game = (() => {
      * и время проведенное на уровне и в игре.
      * @return {Object}
      */
-    getInitialState: () => {
+    getInitialState: function () {
       return {
         // Статус игры. Если CONTINUE, то игра продолжается.
         currentStatus: Verdict.CONTINUE,
@@ -439,7 +439,7 @@ window.Game = (() => {
     /**
      * Отрисовка экрана паузы.
      */
-    _drawPauseScreen: () => {
+    _drawPauseScreen: function () {
       var message;
       switch (this.state.currentStatus) {
         case Verdict.WIN:
@@ -552,7 +552,7 @@ window.Game = (() => {
 
       var loadSprite = function (sprite) {
         var image = new Image(sprite.width, sprite.height);
-        image.onload = () => {
+        image.onload = function () {
           sprite.image = image;
           if (--imagesToGo === 0) {
             self._imagesArePreloaded[self.level] = true;
@@ -615,7 +615,7 @@ window.Game = (() => {
     /**
      * Проверка статуса текущего уровня.
      */
-    checkStatus: () => {
+    checkStatus: function () {
       // Нет нужны запускать проверку, нужно ли останавливать уровень, если
       // заранее известно, что да.
       if (this.state.currentStatus !== Verdict.CONTINUE) {
@@ -696,7 +696,7 @@ window.Game = (() => {
     /**
      * Отрисовка всех объектов на экране.
      */
-    render: () => {
+    render: function () {
       // Удаление всех отрисованных на странице элементов.
       this.ctx.clearRect(0, 0, WIDTH, HEIGHT);
 
@@ -717,7 +717,7 @@ window.Game = (() => {
      * проверку текущего раунда. Рекурсивно продолжается до тех пор, пока
      * проверка не вернет состояние FAIL, WIN или PAUSE.
      */
-    update: () => {
+    update: function () {
       if (!this.state.lastUpdated) {
         this.state.lastUpdated = Date.now();
       }
@@ -795,13 +795,13 @@ window.Game = (() => {
     },
 
     /** @private */
-    _initializeGameListeners: () => {
+    _initializeGameListeners: function () {
       window.addEventListener('keydown', this._onKeyDown);
       window.addEventListener('keyup', this._onKeyUp);
     },
 
     /** @private */
-    _removeGameListeners: () => {
+    _removeGameListeners: function () {
       window.removeEventListener('keydown', this._onKeyDown);
       window.removeEventListener('keyup', this._onKeyUp);
     }
