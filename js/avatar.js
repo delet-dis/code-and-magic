@@ -1,7 +1,7 @@
 'use strict';
 
 //функция изменения превью аватарки пользователя
-(function () {
+(() => {
   const filePicker = document.querySelector('.upload input[type=file]'),
     preview = document.querySelector('.setup-user-pic'),
     previewNonModal = document.querySelector('.setup-open-icon');
@@ -14,7 +14,7 @@
 
     let fileName = file.name.toLowerCase();
 
-    let matches = FILE_TYPES.some((item) => {
+    let matches = FILE_TYPES.some(item => {
       return fileName.endsWith(item);
     });
 

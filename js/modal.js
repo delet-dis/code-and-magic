@@ -1,5 +1,5 @@
 'use strict';
-(function () {
+(() => {
   //поиск модальных окон и элементов взаимодействия с ними
   const setup = document.querySelector('.setup'),
     setupOpen = document.querySelector('.setup-open'),
@@ -31,8 +31,8 @@
   };
 
   //слушатель открытия модалки через фокус аватарки
-  setupOpenIcon.addEventListener('focus', function (evt) {
-    document.addEventListener('keydown', function (evt) {
+  setupOpenIcon.addEventListener('focus', evt => {
+    document.addEventListener('keydown', evt => {
       if (evt.code === 'Enter') {
         openModal();
       }
@@ -40,12 +40,12 @@
   });
 
   //слушатель открытия модального окна
-  setupOpen.addEventListener('click', function () {
+  setupOpen.addEventListener('click', () => {
     openModal();
   });
 
   //перетаскивание модального окна за аватарку в несколько этапов
-  dialogHandler.addEventListener('mousedown', function (evt) {
+  dialogHandler.addEventListener('mousedown', evt => {
     evt.preventDefault();
 
     let startCoords = {
@@ -95,12 +95,12 @@
   });
 
   //слушатель отправки формы
-  form.addEventListener('submit', function (evt) {
+  form.addEventListener('submit', evt => {
     window.backend.save(new FormData(form),
-      function (response) {
+      response => {
         setup.classList.add('hidden');
       }, window.backend.errorHandler);
-      
+
     evt.preventDefault();
     window.updateSimilarWizards();
   });

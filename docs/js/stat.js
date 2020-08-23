@@ -1,13 +1,13 @@
 'use strict';
-(function () {
-  let renderCloud = (ctx, x, y, color) => {
+(() => {
+  const renderCloud = (ctx, x, y, color) => {
     const CLOUD_WIDTH = 500;
     const CLOUD_HEIGHT = 200;
     ctx.fillStyle = color;
     ctx.fillRect(x, y, CLOUD_WIDTH, CLOUD_HEIGHT)
   };
 
-  let renderDiagram = (ctx, names, times) => {
+  const renderDiagram = (ctx, names, times) => {
 
     //константы
     const COLUMN_WIDTH = 40;

@@ -1,24 +1,24 @@
 'use strict';
 
 //функция получения и передачи данных
-(function () {
+(() => {
   const SERVER_URL = 'https://javascript.pages.academy/code-and-magick';
   const DEFAULT_ERROR_MESSAGE = 'Произошла ошибка соединения';
-  let setup = function (onLoad, onError) {
+  let setup = (onLoad, onError) => {
     let xhr = new XMLHttpRequest();
     xhr.responseType = 'json';
 
-    xhr.addEventListener('load', function () {
+    xhr.addEventListener('load', () => {
       if (xhr.status === 200) {
         onLoad(xhr.response);
       } else {
         onError(xhr.response);
       }
     });
-    xhr.addEventListener('error', function () {
+    xhr.addEventListener('error', () => {
       onError(DEFAULT_ERROR_MESSAGE);
     });
-    xhr.addEventListener('timeout', function () {
+    xhr.addEventListener('timeout', () => {
       onError(`Запрос не успел выполниться за ${xhr.timeout} мс`)
     });
 
@@ -29,19 +29,19 @@
   };
 
   window.backend = {
-    save: function (data, onLoad, onError) {
+    save: (data, onLoad, onError) => {
       let xhr = setup(onLoad, onError);
 
       xhr.open('POST', SERVER_URL);
       xhr.send(data);
     },
-    load: function (onLoad, onError) {
+    load: (onLoad, onError) => {
       let xhr = setup(onLoad, onError);
 
       xhr.open('GET', SERVER_URL + '/data');
       xhr.send();
     },
-    errorHandler: function (errorMessage) {
+    errorHandler: errorMessage => {
       let node = document.createElement('div');
       node.classList.add('error-message');
 

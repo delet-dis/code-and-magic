@@ -1,5 +1,5 @@
 'use strict';
-(function () {
+(() => {
   //функция случайного пика значения
   const arrayRandElement = arr => {
     let rand = Math.floor(Math.random() * arr.length);
@@ -19,7 +19,7 @@
   //функция генерации цветов мантии персонажа
   window.playerCoatColor = wizardCoat.style.fill;
 
-  function wizardCoatColorChanger() {
+  const wizardCoatColorChanger = () => {
     let colors = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
     let color = arrayRandElement(colors);
 
@@ -31,7 +31,7 @@
   //функция генерации цветов глаз персонажа
   window.playerEyesColor = wizardEyes.style.fill;
 
-  function wizardEyesColorChanger() {
+  const wizardEyesColorChanger = () => {
     let colors = ['black', 'green', 'yellow', 'blue', 'red'];
     let color = arrayRandElement(colors);
 
@@ -41,7 +41,7 @@
   }
 
   //функция генерации цветов фаерболов
-  function fireballColorChanger() {
+  const fireballColorChanger = () => {
     let colors = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
     let color = arrayRandElement(colors);
 
@@ -50,19 +50,19 @@
   }
 
   //дебаунс(устранение дребезжания)
-  function debounce() {
+  const debounce = () => {
     if (lastTimeout) {
       window.clearTimeout(lastTimeout);
     };
 
-    lastTimeout = window.setTimeout(function () {
+    lastTimeout = window.setTimeout(() => {
       window.updateSimilarWizards();
     }, 300);
   };
 
   //слушатель обновления цвета персонажа по нажатию
   let lastTimeout;
-  setupPlayer.addEventListener('click', function (evt) {
+  setupPlayer.addEventListener('click', evt => {
     const target = evt.target;
     if (target.closest('.wizard-coat')) {
       wizardCoatColorChanger();
@@ -73,7 +73,7 @@
       wizardEyesColorChanger();
       debounce();
     };
-    
+
     if (target.closest('.setup-fireball-wrap')) {
       fireballColorChanger();
     }
