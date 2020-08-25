@@ -1,55 +1,61 @@
 'use strict';
 (() => {
-  //функция случайного пика значения
-  const arrayRandElement = arr => {
-    let rand = Math.floor(Math.random() * arr.length);
+  // функция случайного пика значения
+  const arrayRandElement = (arr) => {
+    const rand = Math.floor(Math.random() * arr.length);
     return arr[rand];
   };
 
-  //объявление переменных для работы с цветами персонажа
-  const setupPlayer = document.querySelector('.setup-player'),
-    setupWizard = document.querySelector('.setup-wizard'),
-    wizardCoat = setupWizard.querySelector('.wizard-coat'),
-    wizardEyes = setupWizard.querySelector('.wizard-eyes'),
-    setupFireballWrap = document.querySelector('.setup-fireball-wrap'),
-    inputCoatColor = document.querySelector('input[name=coat-color]'),
-    inputEyesColor = document.querySelector('input[name=eyes-color]'),
-    inputFireballColor = document.querySelector('input[name=fireball-color]');
+  // объявление переменных для работы с цветами персонажа
+  const setupPlayer = document.querySelector('.setup-player');
+  const setupWizard = document.querySelector('.setup-wizard');
+  const wizardCoat = setupWizard.querySelector('.wizard-coat');
+  const wizardEyes = setupWizard.querySelector('.wizard-eyes');
+  const setupFireballWrap = document.querySelector('.setup-fireball-wrap');
+  const inputCoatColor = document.querySelector('input[name=coat-color]');
+  const inputEyesColor = document.querySelector('input[name=eyes-color]');
+  const inputFireballColor = document
+      .querySelector('input[name=fireball-color]');
 
-  //функция генерации цветов мантии персонажа
+  // функция генерации цветов мантии персонажа
   window.playerCoatColor = wizardCoat.style.fill;
 
   const wizardCoatColorChanger = () => {
-    let colors = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
-    let color = arrayRandElement(colors);
+    const colors = ['rgb(101, 137, 164)',
+      'rgb(241, 43, 107)',
+      'rgb(146, 100, 161)',
+      'rgb(56, 159, 117)',
+      'rgb(215, 210, 55)',
+      'rgb(0, 0, 0)'];
+    const color = arrayRandElement(colors);
 
     wizardCoat.style.fill = color;
     inputCoatColor.value = color;
     window.playerCoatColor = color;
-  }
+  };
 
-  //функция генерации цветов глаз персонажа
+  // функция генерации цветов глаз персонажа
   window.playerEyesColor = wizardEyes.style.fill;
 
   const wizardEyesColorChanger = () => {
-    let colors = ['black', 'green', 'yellow', 'blue', 'red'];
-    let color = arrayRandElement(colors);
+    const colors = ['black', 'green', 'yellow', 'blue', 'red'];
+    const color = arrayRandElement(colors);
 
     wizardEyes.style.fill = color;
     inputEyesColor.value = color;
     window.playerEyesColor = color;
-  }
+  };
 
-  //функция генерации цветов фаерболов
+  // функция генерации цветов фаерболов
   const fireballColorChanger = () => {
-    let colors = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
-    let color = arrayRandElement(colors);
+    const colors = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
+    const color = arrayRandElement(colors);
 
     setupFireballWrap.style.backgroundColor = color;
     inputFireballColor.value = color;
-  }
+  };
 
-  //дебаунс(устранение дребезжания)
+  // дебаунс(устранение дребезжания)
   const debounce = () => {
     if (lastTimeout) {
       window.clearTimeout(lastTimeout);
@@ -60,9 +66,9 @@
     }, 300);
   };
 
-  //слушатель обновления цвета персонажа по нажатию
+  // слушатель обновления цвета персонажа по нажатию
   let lastTimeout;
-  setupPlayer.addEventListener('click', evt => {
+  setupPlayer.addEventListener('click', (evt) => {
     const target = evt.target;
     if (target.closest('.wizard-coat')) {
       wizardCoatColorChanger();
@@ -78,4 +84,4 @@
       fireballColorChanger();
     }
   });
-})()
+})();

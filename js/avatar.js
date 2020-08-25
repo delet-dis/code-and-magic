@@ -1,23 +1,23 @@
 'use strict';
 
-//функция изменения превью аватарки пользователя
+// функция изменения превью аватарки пользователя
 (() => {
-  const filePicker = document.querySelector('.upload input[type=file]'),
-    preview = document.querySelector('.setup-user-pic'),
-    previewNonModal = document.querySelector('.setup-open-icon');
+  const filePicker = document.querySelector('.upload input[type=file]');
+  const preview = document.querySelector('.setup-user-pic');
+  const previewNonModal = document.querySelector('.setup-open-icon');
 
   const FILE_TYPES = ['gif', 'jpeg', 'png', 'jpg'];
 
-  //слушатель изменения аватарки
+  // слушатель изменения аватарки
   filePicker.addEventListener('change', () => {
-    let file = filePicker.files[0];
+    const file = filePicker.files[0];
 
-    let fileName = file.name.toLowerCase();
+    const fileName = file.name.toLowerCase();
 
-    let matches = FILE_TYPES.some(item => fileName.endsWith(item));
+    const matches = FILE_TYPES.some((item) => fileName.endsWith(item));
 
     if (matches) {
-      let reader = new FileReader();
+      const reader = new FileReader();
 
       reader.addEventListener('load', () => {
         preview.src = reader.result;
@@ -26,5 +26,5 @@
 
       reader.readAsDataURL(file);
     }
-  })
+  });
 })();
