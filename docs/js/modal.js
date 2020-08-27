@@ -16,11 +16,11 @@
      evt.code === 'Escape' && curElement.includes('Input') === false) {
       document.removeEventListener('keydown', closeModal);
       setup.classList.add('hidden');
-    };
+    }
   };
 
   // функция открытия модалок
-  const openModal = (evt) => {
+  const openModal = () => {
     setup.classList.remove('hidden');
 
     setup.style.left = '50%';
@@ -31,7 +31,7 @@
   };
 
   // слушатель открытия модалки через фокус аватарки
-  setupOpenIcon.addEventListener('focus', (evt) => {
+  setupOpenIcon.addEventListener('focus', () => {
     document.addEventListener('keydown', (evt) => {
       if (evt.code === 'Enter') {
         openModal();
@@ -97,7 +97,7 @@
   // слушатель отправки формы
   form.addEventListener('submit', (evt) => {
     window.backend.save(new FormData(form),
-        (response) => {
+        () => {
           setup.classList.add('hidden');
         }, window.backend.errorHandler);
 

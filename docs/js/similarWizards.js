@@ -16,11 +16,11 @@
 
     if (wizard.colorCoat === window.playerCoatColor) {
       rank += 2;
-    };
+    }
 
     if (wizard.colorEyes === window.playerEyesColor) {
       rank += 1;
-    };
+    }
 
     return rank;
   };
@@ -74,7 +74,7 @@
 
       if (rankDiff === 0) {
         rankDiff = namesComparator(left.name, right.name);
-      };
+      }
 
       return rankDiff;
     }));
