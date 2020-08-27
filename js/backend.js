@@ -50,13 +50,13 @@
         for (let i = 0; i < errorMessage.length; i++) {
           node.innerText += errorMessage[i].fieldName +
            ' ' + errorMessage[i].errorMessage + ', ';
-        };
+        }
 
         node.textContent = node.textContent
             .replace(/^( *, *)+|(, *(?=,|$))+/g, '');
       } else {
         node.textContent = errorMessage;
-      };
+      }
 
       setTimeout(() => {
         document.querySelector('.error-message').remove();

@@ -59,7 +59,7 @@
   const debounce = () => {
     if (lastTimeout) {
       window.clearTimeout(lastTimeout);
-    };
+    }
 
     lastTimeout = window.setTimeout(() => {
       window.updateSimilarWizards();
@@ -73,12 +73,12 @@
     if (target.closest('.wizard-coat')) {
       wizardCoatColorChanger();
       debounce();
-    };
+    }
 
     if (target.closest('.wizard-eyes')) {
       wizardEyesColorChanger();
       debounce();
-    };
+    }
 
     if (target.closest('.setup-fireball-wrap')) {
       fireballColorChanger();
